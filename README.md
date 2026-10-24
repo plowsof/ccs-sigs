@@ -27,9 +27,12 @@ builder keys, and checks every signature.
 
 ## Checking
 
+ccs-bash has this repository as a submodule at `external/ccs-sigs`, as Feather has feather-sigs:
+
 ```
-env CCS_SIGS_REPO=. ../ccs-bash/contrib/release/verify            # every release
-env CCS_SIGS_REPO=. ../ccs-bash/contrib/release/verify ccs-bash-v0.2.6
+git clone --recursive https://github.com/plowsof/ccs-bash && cd ccs-bash
+git submodule update --remote external/ccs-sigs     # the newest attestations
+contrib/release/verify                              # every release; or name one: ccs-bash-v0.2.7
 ```
 
 It checks each signature against `builder-keys/` (in a keyring of its own) and that all signers
