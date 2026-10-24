@@ -2,7 +2,7 @@
 
 Attestations for releases of the Monero CCS: [ccs-bash](https://github.com/plowsof/ccs-bash),
 [ccs-front-bash](https://github.com/plowsof/ccs-front-bash) and
-and [ccs-front-hugo](https://github.com/plowsof/ccs-front-hugo). Each signer rebuilt the release
+[ccs-front-hugo](https://github.com/plowsof/ccs-front-hugo). Each signer rebuilt the release
 themselves and signed what came out. (The wallet's signed subaddress list isn't attested here: a
 Core Team member makes and signs it, and contributors can regenerate it and confirm its hash.)
 
@@ -26,8 +26,10 @@ Branches: `master` for real attestations; `testnet` for trying the process out (
 
 See [ccs-bash's contrib/release](https://github.com/plowsof/ccs-bash/tree/master/contrib/release):
 `build` rebuilds a release from its tag (with that repository's own pinned StageX build), `attest`
-writes and signs your folder here. Your first time, add `builder-keys/<signer>.asc` in the same
-pull request. The pull request's `lint` check accepts only new attestations, in pairs, and
+writes and signs your folder here. Then open a pull request against `master` from your fork,
+titled as feather-sigs' are: `Add <signer> <set>`, e.g. `Add plowsof
+ccs-bash-v0.2.8+ccs-front-bash-v0.1.11+ccs-front-hugo-v0.1.9`. Your first time, add
+`builder-keys/<signer>.asc` in the same pull request. The pull request's `lint` check accepts only new attestations, in pairs, and
 builder keys, and checks every signature.
 
 ## Checking
