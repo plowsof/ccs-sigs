@@ -1,0 +1,23 @@
+name: lint
+# feather-sigs' check (from Bitcoin Core's guix.sigs): a pull request may only add attestations
+# (<name>/<signer>/all.SHA256SUMS and its .asc, in pairs) and builder keys, and each signature
+# must verify against builder-keys/<signer>.asc.
+
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04   # as feather-sigs: its gpgme crate needs gpg-error-config, gone in 24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, pinned by commit
+        with:
+          fetch-depth: 2   # the merge commit and its first parent: HEAD~..HEAD is the pull request
+      - name: install dependencies
+        run: sudo apt update && sudo apt install -y git libgpgme-dev cargo
+      - name: build touched-files-check
+        run: mkdir out-dir && cd ./contrib/touched-files-check && cargo build && mv ./target/debug/touched-files-check ../../out-dir/
+      - name: run lint script
+        run: ./out-dir/touched-files-check "HEAD~..HEAD"
