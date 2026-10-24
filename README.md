@@ -2,8 +2,9 @@
 
 Attestations for releases of the Monero CCS: [ccs-bash](https://github.com/plowsof/ccs-bash),
 [ccs-front-bash](https://github.com/plowsof/ccs-front-bash) and
-[ccs-front-hugo](https://github.com/plowsof/ccs-front-hugo), and the wallet's signed list of
-donation subaddresses. Each signer rebuilt the release themselves and signed what came out.
+and [ccs-front-hugo](https://github.com/plowsof/ccs-front-hugo). Each signer rebuilt the release
+themselves and signed what came out. (The wallet's signed subaddress list isn't attested here: a
+Core Team member makes and signs it, and contributors can regenerate it and confirm its hash.)
 
 Modelled on [feather-sigs](https://github.com/feather-wallet/feather-sigs) (thank you, tobtoht),
 which follows Bitcoin Core's [guix.sigs](https://github.com/bitcoin-core/guix.sigs):
@@ -14,8 +15,7 @@ which follows Bitcoin Core's [guix.sigs](https://github.com/bitcoin-core/guix.si
 builder-keys/<signer>.asc             their public key
 ```
 
-`<name>` is a release, `ccs-bash-v0.2.6`, `ccs-front-bash-v0.1.7`, `ccs-front-hugo-v0.1.6`, or a
-subaddress list, `subaddresses-testnet-15000`.
+`<name>` is a release: `ccs-bash-v0.2.7`, `ccs-front-bash-v0.1.8`, `ccs-front-hugo-v0.1.7`.
 
 ## Attesting
 
