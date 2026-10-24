@@ -15,7 +15,12 @@ which follows Bitcoin Core's [guix.sigs](https://github.com/bitcoin-core/guix.si
 builder-keys/<signer>.asc             their public key
 ```
 
-`<name>` is a release: `ccs-bash-v0.2.7`, `ccs-front-bash-v0.1.8`, `ccs-front-hugo-v0.1.7`.
+`<name>` is the set of releases the signer built in one run, one `all.SHA256SUMS` with a line for
+each, signed once (as feather-sigs has one per version), e.g.
+`ccs-bash-v0.2.7+ccs-front-bash-v0.1.9+ccs-front-hugo-v0.1.8`. `verify ccs-bash-v0.2.7` checks one
+release in every set it is in.
+
+Branches: `master` for real attestations; `testnet` for trying the process out (throwaway keys).
 
 ## Attesting
 
