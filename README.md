@@ -4,7 +4,7 @@ Attestations for releases of the Monero CCS: [ccs-bash](https://github.com/plows
 [ccs-front-bash](https://github.com/plowsof/ccs-front-bash) and
 and [ccs-front-hugo](https://github.com/plowsof/ccs-front-hugo). Each signer rebuilt the release
 themselves and signed what came out. (The wallet's signed subaddress list isn't attested here: a
-CCS maintainer and another contributor check it together when it is made.)
+Core Team member makes and signs it, and contributors can regenerate it and confirm its hash.)
 
 Modelled on [feather-sigs](https://github.com/feather-wallet/feather-sigs) (thank you, tobtoht),
 which follows Bitcoin Core's [guix.sigs](https://github.com/bitcoin-core/guix.sigs):
