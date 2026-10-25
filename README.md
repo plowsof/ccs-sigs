@@ -15,10 +15,13 @@ which follows Bitcoin Core's [guix.sigs](https://github.com/bitcoin-core/guix.si
 builder-keys/<signer>.asc             their public key
 ```
 
-`<name>` is the set of releases the signer built in one run, one `all.SHA256SUMS` with a line for
-each, signed once (as feather-sigs has one per version), e.g.
-`ccs-bash-v0.2.7+ccs-front-bash-v0.1.9+ccs-front-hugo-v0.1.8`. `verify ccs-bash-v0.2.7` checks one
-release in every set it is in.
+`<name>` is one release, e.g. `ccs-bash-v0.2.7` (as feather-sigs has one folder per version): every
+signer of it is in its folder, whatever else they built in the same run, and a release attested
+once stays attested. Which releases run together is ccs-bash's
+[releases table](https://github.com/plowsof/ccs-bash/blob/master/docs/handover.md#the-releases).
+Earlier attestations are in one folder per set, e.g.
+`ccs-bash-v0.2.7+ccs-front-bash-v0.1.9+ccs-front-hugo-v0.1.8`, a line per release;
+`verify ccs-bash-v0.2.7` checks a release in its folder and in every set folder it is in.
 
 Branches: `master` for real attestations; `testnet` for trying the process out (throwaway keys).
 
@@ -27,8 +30,8 @@ Branches: `master` for real attestations; `testnet` for trying the process out (
 See [ccs-bash's contrib/release](https://github.com/plowsof/ccs-bash/tree/master/contrib/release):
 `build` rebuilds a release from its tag (with that repository's own pinned StageX build), `attest`
 writes and signs your folder here. Then open a pull request against `master` from your fork,
-titled as feather-sigs' are: `Add <signer> <set>`, e.g. `Add plowsof
-ccs-bash-v0.2.8+ccs-front-bash-v0.1.11+ccs-front-hugo-v0.1.9`. Your first time, add
+titled as feather-sigs' are: `Add <signer> <release>...`, e.g. `Add plowsof
+ccs-bash-v0.2.8 ccs-front-bash-v0.1.11 ccs-front-hugo-v0.1.9`. Your first time, add
 `builder-keys/<signer>.asc` in the same pull request. The pull request's `lint` check accepts only new attestations, in pairs, and
 builder keys, and checks every signature.
 
