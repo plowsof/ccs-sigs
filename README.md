@@ -21,9 +21,7 @@ feather-sigs has one folder per version: a version of the CCS is the three toget
 release of any one, every signer attests the new set, the other two again. Which releases run
 together is ccs-bash's
 [releases table](https://github.com/plowsof/ccs-bash/blob/master/docs/handover.md#the-releases).
-`verify ccs-bash-v0.2.18` checks a release in every set folder it is in. Some folders from
-2026-10-25 and 26 hold one release each (`ccs-bash-v0.2.14` ... `ccs-bash-v0.2.17`,
-`ccs-front-hugo-v0.1.16`, `ccs-front-hugo-v0.1.17`); `verify` reads them too.
+`verify ccs-bash-v0.2.18` checks a release in every set folder it is in.
 
 Branches: `master` for real attestations; `testnet` for trying the process out (throwaway keys).
 
