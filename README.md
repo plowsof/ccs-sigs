@@ -15,13 +15,13 @@ which follows Bitcoin Core's [guix.sigs](https://github.com/bitcoin-core/guix.si
 builder-keys/<signer>.asc             their public key
 ```
 
-`<name>` is one release, e.g. `ccs-bash-v0.2.7` (as feather-sigs has one folder per version): every
-signer of it is in its folder, whatever else they built in the same run, and a release attested
-once stays attested. Which releases run together is ccs-bash's
+`<name>` is one set: the three releases that run together, e.g.
+`ccs-bash-v0.2.18+ccs-front-bash-v0.1.17+ccs-front-hugo-v0.1.17`, a line per release (as
+feather-sigs has one folder per version: a version of the CCS is the three together). After a
+release of any one, every signer attests the new set, the other two again. Which releases run
+together is ccs-bash's
 [releases table](https://github.com/plowsof/ccs-bash/blob/master/docs/handover.md#the-releases).
-Earlier attestations are in one folder per set, e.g.
-`ccs-bash-v0.2.7+ccs-front-bash-v0.1.9+ccs-front-hugo-v0.1.8`, a line per release;
-`verify ccs-bash-v0.2.7` checks a release in its folder and in every set folder it is in.
+`verify ccs-bash-v0.2.18` checks a release in every set folder it is in.
 
 Branches: `master` for real attestations; `testnet` for trying the process out (throwaway keys).
 
