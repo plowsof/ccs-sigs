@@ -23,7 +23,8 @@ together is ccs-bash's
 [releases table](https://github.com/plowsof/ccs-bash/blob/master/docs/handover.md#the-releases).
 `verify ccs-bash-v0.2.18` checks a release in every set folder it is in.
 
-Branches: `master` for real attestations; `testnet` for trying the process out (throwaway keys).
+Branches: `master` for the attestations of releases (so far one throwaway key a set, for the
+testnet; the CCS's need two or more people who rebuilt them); `testnet` for trying the process out.
 
 ## Attesting
 
@@ -32,8 +33,10 @@ See [ccs-bash's contrib/release](https://github.com/plowsof/ccs-bash/tree/master
 writes and signs your folder here. Then open a pull request against `master` from your fork,
 titled as feather-sigs' are: `Add <signer> <release>...`, e.g. `Add plowsof
 ccs-bash-v0.2.8 ccs-front-bash-v0.1.11 ccs-front-hugo-v0.1.9`. Your first time, add
-`builder-keys/<signer>.asc` in the same pull request. The pull request's `lint` check accepts only new attestations, in pairs, and
-builder keys, and checks every signature.
+`builder-keys/<signer>.asc` in the same pull request. The pull request's `lint` check looks for only new attestations, in pairs, and
+builder keys, and checks every signature. It is advisory: it runs from the pull request's own
+tree, which can change it, so every pull request is reviewed (a changed builder key above all), and
+what counts is ccs-bash's `verify` with your own trusted keys.
 
 ## Checking
 
